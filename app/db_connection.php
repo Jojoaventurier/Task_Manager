@@ -14,7 +14,7 @@ function getDbConnection() {
 }
 
 // Database connection
-$pdo = new PDO('mysql:host=localhost;dbname=your_database_name', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=task_manager', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Fetch all general categories with their associated categories and tasks
