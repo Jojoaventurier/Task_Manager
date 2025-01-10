@@ -1,3 +1,5 @@
+<?php $generalCategories = require __DIR__ . '/data.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,6 @@
 </head>
 <body>
     <h1>Welcome to Task Manager</h1>
-    <a href="/tasks">View Tasks</a>
-</body>
+    <a href="/task_manager/public/index.php?page=tasks">View Tasks</a>
+</body> 
 </html>

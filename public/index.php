@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/../app/routes.php';
 
-// Get the current path
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// Default to 'home' if no page is specified
+$page = $_GET['page'] ?? 'home';
 
-// Route handling
-route($path);
+// Route based on the page parameter
+route($page);

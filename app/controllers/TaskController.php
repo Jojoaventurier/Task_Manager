@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../database.php';
+require_once __DIR__ . '/../db_connection.php';
 
 function listTasks() {
     $db = getDbConnection();
