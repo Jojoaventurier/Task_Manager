@@ -15,10 +15,6 @@ function route($page) {
             require_once __DIR__ . '/controllers/DataController.php';
             showData();
             break;
-        case '/handle-data':
-            require_once __DIR__ . '/controllers/DataController.php';
-            handleDataActions();
-            break;
     
         case 'add-task':
             require_once __DIR__ . '/controllers/DataController.php';
