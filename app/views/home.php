@@ -10,5 +10,6 @@
 <body>
     <h1>Welcome to Task Manager</h1>
     <a href="/task_manager/public/index.php?page=tasks">View Tasks</a>
+    <a href="/task_manager/public/index.php?page=data">Data view</a>
 </body> 
 </html>

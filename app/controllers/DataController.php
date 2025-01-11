@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db_connection.php';
+require_once '../db_connection.php';
 
 function showData() {
     // Fetch all data (general categories, categories, and tasks)
