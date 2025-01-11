@@ -1,6 +1,6 @@
 <?php
-//require_once './db_connection.php';
-//$data = getAllData();
+// require_once './db_connection.php';
+// $data = getAllData();
 ?>
 
 <!DOCTYPE html>

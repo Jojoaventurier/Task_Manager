@@ -13,13 +13,9 @@ function getDbConnection() {
     }
 }
 
-// Database connection
-$pdo = new PDO('mysql:host=localhost;dbname=task_manager', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // Fetch all general categories with their associated categories and tasks
 function getAllData() {
-    global $pdo;
+    $pdo = getDbConnection();
     
     $stmt = $pdo->query('
         SELECT gc.id AS general_category_id, gc.name AS general_category_name,
@@ -35,7 +31,7 @@ function getAllData() {
 
 // Add new task
 function addTask($taskName, $categoryId) {
-    global $pdo;
+    $pdo = getDbConnection();
     
     $stmt = $pdo->prepare('INSERT INTO tasks (task_name, category_id) VALUES (?, ?)');
     $stmt->execute([$taskName, $categoryId]);
@@ -43,7 +39,7 @@ function addTask($taskName, $categoryId) {
 
 // Add new category
 function addCategory($categoryName, $generalCategoryId) {
-    global $pdo;
+    $pdo = getDbConnection();
     
     $stmt = $pdo->prepare('INSERT INTO categories (name, general_category_id) VALUES (?, ?)');
     $stmt->execute([$categoryName, $generalCategoryId]);
@@ -51,7 +47,7 @@ function addCategory($categoryName, $generalCategoryId) {
 
 // Add general category
 function addGeneralCategory($categoryName) {
-    global $pdo;
+    $pdo = getDbConnection();
     
     $stmt = $pdo->prepare('INSERT INTO general_categories (name) VALUES (?)');
     $stmt->execute([$categoryName]);
@@ -59,7 +55,7 @@ function addGeneralCategory($categoryName) {
 
 // Update task
 function updateTask($taskId, $newTaskName) {
-    global $pdo;
+    $pdo = getDbConnection();
     
     $stmt = $pdo->prepare('UPDATE tasks SET task_name = ? WHERE id = ?');
     $stmt->execute([$newTaskName, $taskId]);
@@ -67,7 +63,7 @@ function updateTask($taskId, $newTaskName) {
 
 // Delete task
 function deleteTask($taskId) {
-    global $pdo;
+    $pdo = getDbConnection();
     
     $stmt = $pdo->prepare('DELETE FROM tasks WHERE id = ?');
     $stmt->execute([$taskId]);

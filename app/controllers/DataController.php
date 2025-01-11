@@ -1,11 +1,11 @@
 <?php
 
-require_once '../db_connection.php';
+require_once __DIR__ . '/../db_connection.php';
 
 function showData() {
     // Fetch all data (general categories, categories, and tasks)
     $data = getAllData();
-    include 'data_view.php'; // Render the data view with the fetched data
+    include __DIR__ . '/../views/data_view.php'; // Render the data view with the fetched data
 }
 
 // Add task handler
