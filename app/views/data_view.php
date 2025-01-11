@@ -1,4 +1,5 @@
 <?php
+// Assuming you have the database connection established
 // require_once './db_connection.php';
 // $data = getAllData();
 ?>
@@ -36,7 +37,7 @@
                 }
 
                 // Display each task with mode and active status
-                $isActiveText = $row['is_active'] ? 'Yes' : 'No';
+                $isActiveText = isset($row['is_active']) && $row['is_active'] ? 'Yes' : 'No';
                 $modeName = $row['mode_name'] ?? 'No Mode'; // Handle NULL mode gracefully
 
                 echo "<tr>
@@ -56,7 +57,7 @@
                             <!-- Toggle Active/Deactivate Task -->
                             <form method='POST' action='/toggle-task' style='display: inline-block;'>
                                 <input type='hidden' name='task_id' value='{$row['task_id']}'>
-                                <button type='submit'>".($row['is_active'] ? 'Deactivate' : 'Activate')."</button>
+                                <button type='submit'>".(isset($row['is_active']) && $row['is_active'] ? 'Deactivate' : 'Activate')."</button>
                             </form>
 
                             <!-- Delete Task Form -->
