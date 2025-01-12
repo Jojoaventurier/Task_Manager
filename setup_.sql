@@ -18,3 +18,24 @@ CREATE TABLE MODE (
     name VARCHAR(100) NOT NULL,
     frequency_days INT NOT NULL
 );
+
+CREATE TABLE TASK (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description VARCHAR(255),
+    is_done BOOLEAN DEFAULT FALSE,
+    added_on DATETIME DEFAULT CURRENT_TIMESTAMP,
+    done_on DATETIME NULL,
+    room_id INT NOT NULL,
+    mode_id INT,
+    FOREIGN KEY (room_id) REFERENCES ROOM(id),
+    FOREIGN KEY (mode_id) REFERENCES MODE(id)
+);
+
+CREATE TABLE TIMELINE (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_id INT NOT NULL,
+    start_date DATE NOT NULL,
+    deadline DATE NOT NULL,
+    FOREIGN KEY (task_id) REFERENCES TASK(id)
+);
