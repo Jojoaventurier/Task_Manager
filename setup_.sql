@@ -12,3 +12,9 @@ CREATE TABLE ROOM (
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES USER_(id)
 );
+
+CREATE TABLE MODE (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    frequency_days INT NOT NULL
+);
